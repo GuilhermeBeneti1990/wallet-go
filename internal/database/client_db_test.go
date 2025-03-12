@@ -40,13 +40,13 @@ func (s *ClientDBTestSuite) TestCreate() {
 		Email: "j@email.com",
 	}
 
-	err := s.clientDb.Create(client)
+	err := s.clientDb.Save(client)
 	s.Require().NoError(err)
 }
 
 func (s *ClientDBTestSuite) TestGet() {
 	client, _ := entities.NewClient("John Doe", "j@email.com")
-	s.clientDb.Create(client)
+	s.clientDb.Save(client)
 
 	clientDB, err := s.clientDb.Get(client.ID)
 	s.Require().NoError(err)

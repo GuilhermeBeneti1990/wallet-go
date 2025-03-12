@@ -34,7 +34,7 @@ func (c *ClientDB) Get(id string) (*entities.Client, error) {
 	return client, nil
 }
 
-func (c *ClientDB) Create(client *entities.Client) error {
+func (c *ClientDB) Save(client *entities.Client) error {
 	stmt, err := c.DB.Prepare("INSERT INTO clients (id, name, email, created_at) VALUES (?, ?, ?, ?)")
 	if err != nil {
 		return err
